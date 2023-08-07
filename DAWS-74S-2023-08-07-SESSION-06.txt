@@ -1,0 +1,148 @@
+Show project
+Public vs Private IP
+How Internet works
+Monolithic vs Microservices
+Security Groups --> Firewalls
+
+
+Manual configuration
+--------------------
+
+3 tier architecture
+
+Private IP: 192.168.1.2
+Modem IP: 192.168.1.1
+Public IP: 59.182.2.116
+
+1995 we had only public IP. NAT
+
+Private IP will be allocated by Modem
+
+
+Why Private IP?
+-----------------
+IpV4 is going to be exhausted?
+before 1995 ISP were giving ipv4 address directly to laptop.
+NAT --> Network Address Translation
+laptop1: 192.168.1.2
+laptop2: 192.168.1.3
+
+latency
+security
+
+DNS(Domain Name System) --> IP dictionary
+--------------------------------------
+Humans can remember names not numbers, computers cant understand names they can only understand numbers
+
+ISP is responsible to provide IP address of domain
+
+facebook.com --> 157.240.228.35
+
+facebook server is not in our home network,
+
+AirTel --> some network --> you can start your own ISP --> ACT
+BSNL
+JIO
+VI
+
+US exchane point --> which ISP is providing internet to facebook datacenter --> fb data center --> it will reach fb server
+
+Wireless
+
+Monolithic vs Microservices
+--------------------------
+application is very big
+	it has frontend
+	it has backend
+1. A simple change also need to be deployed again.
+2. Maintainance is a big headache
+3. HTML/JS developers, you will JAVA/.NET developers
+	1000 -- JAVA developers
+	500 -- Fronend developers
+4. amazon-v0.0.1.ear --> enterprise archive
+5. amazon-v0.0.2.ear --> 1 day downtime, your business will go down.
+
+API based application
+------------------------
+HTML/JS team is different
+Backend team is different
+
+API -->
+
+Fronend always calls backend through API calls, Backend will send data in JSON format and images
+
+roboshop
+-------------------
+It is ecommerce
+
+User
+Products
+Cart
+Order management
+Payment
+Shipping
+ratings
+
+amazon-v0.0.1.war --> web archive
+if one error in one component can make entire website go down
+
+1000 Java developers
+
+1. You have to completely develop in JAVA
+2. Migration is very difficult in monolithic, entire application is on single programming language
+3. Maintaince and monitoring is very difficult
+4. Scaling is very difficult at the time of more traffic
+
+
+cart and product catalogue will get more traffic on big billion day.
+
+Microservices
+-----------------------
+User --> user-0.0.1 --> Java
+Products --> catalogue-0.0.2 --> NodeJS
+Cart --> .NET 
+Order management
+Payment
+Shipping
+ratings
+
+API 
+All microservices communicate with each through Private IP and API calls..
+
+entire application is developed by developers, 
+they will give us documentation about dependencies,
+we start configuring the projects
+
+Manual
+Shell Script
+GitHub 
+Ansible
+Jenkins - CICD
+Terraform
+
+deploy as a monolithic
+deploy as a microservices
+
+
+Kubernetes
+
+	
+Firewall
+---------------
+Inbound --> traffic coming to your server
+	source: internet i.e any server outside
+	destination: your Ec2 instance
+Outbound --> traffic going out from your server
+	source: your EC2 server
+	destination: whatever you want to send
+	
+only port no 80 and 22 are allowed, 
+0.0.0.0/0 --> everybody on the internet
+
+Public IP vs Private IP
+Microservices advantages
+Monolithic vs Microservices
+how Firewall works
+How internet works -> just understand how the request flow
+
+API development

@@ -1,0 +1,97 @@
+Web/frontend
+app/api/backend
+db
+
+AWS Regions, AZ
+AMI --> Amazon machine image
+
+AWS resources are mostly region based, few services are global
+
+AZ is for disaster recovery purpose.
+
+HA --> we can create resources atleast in 2AZ.
+DR --> move resources immidiately to another AZ. move resources to another region, but it takes few hours
+
+AMI --> Amazon Machine image
+
+We frequently need nginx servers to install applications.
+
+OS + Install package + configure service/package
+
+We can create image out of server.
+
+stable vs moving
+
+when server is running, by the time you take photo of server, many things may happen. it leads to errors.
+
+Windows OS + install MS office + Anti virus = Windows-10.iso
+
+devops-practice --> AMI for entire course
+-------------------
+It is username and password --> centos DevOps321
+centos8 = AWS Linux 2 = RHEL8 = Fedora
+
+Developers, architects
+-----------------------
+What programming languages
+What are the tools and versions of programming
+
+DevOps architects
+-----------------
+DevOps tools and versions
+
+google.com --> allow
+facebook.com --> don't allow
+youtube.com
+
+a show is only visible in US region.
+
+your phone is a server which has some files
+
+your client is laptop which is requesting to view files
+
+developer write the code --> compile --> build/package
+
+java -> .jar
+all languages --> .zip
+
+RDBMS --> SQL --> Relation Database management system --> Rows and Columns
+NoSQL --> No SQL -> no tables no rows and columns --> data is based on documents and collections --> js files
+
+RDBMS vs NoSQL
+
+MongoDB --> NoSQL
+
+netstat -lntp
+
+27017 --> mongodb
+
+127.0.0.1 --> localhost
+
+By default some servers mostly DB servers, you can't open them apart from local server. this is for security
+
+catalogue
+------------------
+this is microservice developed in nodejs
+
+write the code --> compile --> packaged --> .zip file
+
+we need to install node environment
+
+system/service user
+-------------------
+user --> human
+system(non-human) --> on behalf of users, applications have dedicated users for security
+
+install dependencies/libraries --> 
+maven --> pom.xml
+nodejs/js --> package.json
+requirements.txt --> python
+
+Tasks
+----------
+Forward vs Reverse proxy
+MySQL and NoSQL
+what is system user in linux
+
+

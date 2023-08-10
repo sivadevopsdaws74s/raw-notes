@@ -1,0 +1,145 @@
+DB --> Stateful --> state/DB --> it should be stored
+API --> CRUD on DB --> stateless applications
+Web --> fetching data from API tier --> stateless applications
+
+WEB/API Tier
+---------------
+1. Developers use programming languages to develop
+2. We should compile
+3. We should build and package it
+4. We store packages .zip, .jar, etc in some location. like nexus, s3, etc.
+5. We will fetch the package and deploy inside the server.
+
+Deploy
+-------------
+1. Create server
+2. Install language
+3. fetch the package and install dependencies
+4. create a service
+5. do some configuration
+
+1. Install
+2. Configure
+3. Run
+
+
+DB tier --> heavy applications --> t3.micro
+APP/WEB tier --> t2.micro
+
+MongoDb server --> Linux server is local to --> by default it expects the application should be running in same server...
+
+systemd service
+--------------------
+[Unit]
+Description=The nginx HTTP and reverse proxy server
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+# Nginx will fail to start if /run/nginx.pid already exists but has the wrong
+# SELinux context. This might happen when running `nginx -t` from the cmdline.
+# https://bugzilla.redhat.com/show_bug.cgi?id=1268621
+ExecStartPre=/usr/bin/rm -f /run/nginx.pid
+ExecStartPre=/usr/sbin/nginx -t
+ExecStart=/usr/sbin/nginx
+ExecReload=/bin/kill -s HUP $MAINPID
+KillSignal=SIGQUIT
+TimeoutStopSec=5
+KillMode=mixed
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+
+
+/etc/systemd/system/ --> Linux looks for the services when it is starting
+
+
+we create a service in /etc/systemd/system/ folder to manage it as native systemctl service.
+
+
+[Unit]
+Description = Catalogue Service
+
+[Service]
+User=roboshop
+Environment=MONGO=true
+Environment=MONGO_URL="mongodb://172.31.2.4:27017/catalogue"
+ExecStart=/bin/node /app/server.js
+SyslogIdentifier=catalogue
+
+[Install]
+WantedBy=multi-user.target
+
+load some products into mongodb
+
+admin application --> support team
+
+Admin UI
+--------------
+Enter Product Name _____________
+Enter Product Code ______________
+Enter Price _______________
+
+1. Install mongodb client software inside catalogue
+2. Connect to mongodb server
+3. developer gave us some initial products
+4. load them into mongodb.
+
+mongodb-org-shell --> mongo client
+
+mongodb-org --> mongodb server
+
+mongo --host 172.31.2.4 < /app/schema/catalogue.js
+
+< --> input
+> --> output/redirection
+
+
+proxy_http_version 1.1;
+location /images/ {
+  expires 5s;
+  root   /usr/share/nginx/html;
+  try_files $uri /images/placeholder.jpg;
+}
+location /api/catalogue/ { proxy_pass http://172.31.2.59:8080/; }
+location /api/user/ { proxy_pass http://localhost:8080/; }
+location /api/cart/ { proxy_pass http://localhost:8080/; }
+location /api/shipping/ { proxy_pass http://localhost:8080/; }
+location /api/payment/ { proxy_pass http://localhost:8080/; }
+
+location /health {
+  stub_status on;
+  access_log off;
+}
+
+less /var/log/messages
+
+Shift+g --> down
+gg --> take up
+q --> quit
+
+tail -f <log-file>
+
+http://3.236.137.205/api/catalogue/product/HAL-1
+
+Request: /product/HAL-1
+
+2** --> sucess
+3** --> redirection
+
+4** --> client side error, you are not giving proper URL
+
+5** --> server side error, there is something wrong inside server/code
+
+
+Aug 10 02:33:04 ip-172-31-2-59 catalogue[17029]: {"level":"info","time":1691634784669,"pid":17029,"hostname":"ip-172-31-2-59.ec2.internal","req":{"id":15,"method":"GET","url":"/product/HAL-1","headers":{"host":"172.31.2.59:8080","connection":"close","accept":"application/json, text/plain, */*","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36","referer":"http://3.236.137.205/product/HAL-1","accept-encoding":"gzip, deflate","accept-language":"en-US,en;q=0.9","if-none-match":"W/\"aa-xQNHqR5jhJZvexZ2H1Mr7Tu9hyg\""},"remoteAddress":"::ffff:172.31.9.45","remotePort":59284},"res":{"statusCode":304,"headers":{"x-powered-by":"Express","timing-allow-origin":"*","access-control-allow-origin":"*","etag":"W/\"aa-xQNHqR5jhJZvexZ2H1Mr7Tu9hyg\""}},"responseTime":3,"msg":"request completed","v":1}
+
+RHEL = centos = AWS linux = fedora
+
+yum --> dnf
+
+/etc/yum.repos.d/
+
+*.repo files --> yum install nginx

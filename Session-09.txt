@@ -1,0 +1,82 @@
+1. netstat -lntp --> this should open port no 80
+2. ps -ef | grep nginx
+3. you can check the logs
+4. systemctl status nginx
+5. check security groups
+
+Data
+-------------
+SQL --> Row and columns
+NoSQL --> json or js
+Excel --> row and cloumns but no relation b/w tables.
+Files --> some thing inside files
+
+CRUD by programming languages
+------------
+when someone create new product --> they will insert
+if you want to see products --> they will run select queries
+if you want to delete product --> they will run delete queries
+if you want to update product --> they will run update queries
+
+SOP --> standard operating procedure
+-----------------------
+
+Downloading Packages:
+(1/5): mongodb-org-4.2.24-1.el8.x86_64.rpm                                                             214 kB/s |  11 kB     00:00
+(2/5): mongodb-org-mongos-4.2.24-1.el8.x86_64.rpm                                                       17 MB/s |  11 MB     00:00
+(3/5): mongodb-org-shell-4.2.24-1.el8.x86_64.rpm                                                        11 MB/s |  13 MB     00:01
+(4/5): mongodb-org-server-4.2.24-1.el8.x86_64.rpm                                                       12 MB/s |  20 MB     00:01
+(5/5): mongodb-org-tools-4.2.24-1.el8.x86_64.rpm 
+
+
+redis is a popular cache server.
+
+rpm --> redhat package manager
+
+yum --> package manager
+
+packages --> every package in redhat is rpm
+
+yum --> it will automatically resolve the dependencies, it will fetch all the dependencies and install before installing the requested package
+
+if you know dependencies you can install manaully through rpm packages
+
+create .repo manually
+
+or else
+
+redis is giving flexibility they gave one rpm file, if you install your repos will be created automatically
+
+yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+
+if you want to upgrade 6.2 to 6.3
+
+[redis-org-6.3]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/6.3/x86_64/
+gpgcheck=0
+enabled=1
+
+troubleshooting
+----------------
+
+Aug 11 02:45:11 ip-172-31-6-152 catalogue[17020]: {"level":"error","time":1691721911168,"pid":17020,"hostname":"ip-172-31-6-152.ec2.internal","msg":"ERROR {\"name\":\"MongoNetworkError\"}","v":1}
+
+create repos through yum install rpm
+we particularly enabled a version
+
+Java
+---------------
+npm --> build tool for nodejs
+maven --> build tool for java applications
+
+if you install maven, it will automatically install java
+
+npm install --> dependencies resolution
+
+mvn clean package --> install dependencies and create .jar file
+
+.jar --> java archive file
+
+
+

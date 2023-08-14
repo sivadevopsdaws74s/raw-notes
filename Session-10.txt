@@ -1,0 +1,153 @@
+shipping
+----------
+
+RabbitMQ
+----------
+RabbitMQ is one of the popular Messaging Queue software.
+
+Synchronous and Asynchronous communication
+------------------------------------------
+Live sessions vs Recorded Sessions - Synchronous
+--------------------------
+immidiate feedback
+trainer is always available
+slack and QA
+
+Recorded sessions - Asynchronous
+--------------------------
+no interactive
+no immidiate feedback
+get some doubt, you will post and you get response after sometime.
+
+http://34.230.44.179/api/catalogue/categories --> we are sending a message to our web component about the categories, it is immidiately sending the response
+
+Synchronous HTTP --> you will query, you will get response
+but what if catalogue server down, we will not get response
+
+sivakumar --> http --> if ramesh offline
+---------------------------------------
+your message is lost, because ramesh is offline
+
+
+1. Queue
+2. Topic
+
+Queue(point to point)
+--------------
+sivakumar --> ramesh
+one to one
+
+MQ(Messaging Queue) Server
+--------------
+Ramesh Queue
+Sivakumar Queue
+
+a message will be sent to ramesh queue inside MQ Server. if ramesh is online, immidiately he will get message to his mobile.
+
+if ramesh is offline, message will be available in that queue for 30 days.
+
+2. Topic(Publish and subscribe)
+--------
+youtube --> when you subscribe to channel, you will get notification
+one to many
+
+when video is published to the channel, youtube will send a message to channel topic. all users whoever subscribed will be listening to the channel, they will get immidiate notification.
+
+
+House
+-------------
+labours, engineers are working together --> we are expecting a well built home without any issues. single home
+
+Project
+-------------
+lot of developers, testers, architects --> for a application i.e artifact(single file)
+compiling and creating a package.
+
+we don't do everything on our own, we will refer libraries already developed code, you can use them as libraries.
+
+
+Dispatch
+----------------
+ecommerce --> third party companies to deliver packages
+
+product
+code
+description
+qunantity
+shipping
+
+it is a microservice always listening to the payments queue for product and shipping information.
+
+Aug 14 02:22:24 ip-172-31-93-201 dispatch[21143]: 2023/08/14 02:22:24 Order {"orderid": "3ae743a3-492c-4b6b-a94f-608191cbf265", "user": "sivakumar", "cart": {"total": 748.6, "tax": 124.76666666666665, "items": [{"qty": 1, "sku": "HHGTTG", "name": "Marvin", "price": 42, "subtotal": 42}, {"qty": 1, "sku": "SHIP", "name": "shipping to Australia Sydenham", "price": 706.6, "subtotal": 706.6}]}}
+
+
+Automation
+------------------
+1. Everytime you need to configure same steps for the server(Ansible)
+2. here we are using IP address, when you stop/start the server always IP address is chaning. we need domains. roboshop.com
+3. What if traffic is more, we need to scale the servers --> Autoscaling
+4. We need to monitor for the errors. System resources should be monitored always. --> monitoring
+5. Resource utilisation(Containerisation) --> min servers but more perfomance.
+6. Automatic deployments(CICD) --> when ever developer released a new feature
+	compile
+	package
+	scan
+	remove old version
+	release new version
+7. we are creating servers manually, we need to automated infrastrcuture --> terraform
+8. https
+
+DNS(Domain name system)
+-----------------------
+buy cheapest domain for training --> Hostinger
+domain provider...
+
+DNS works?
+------------------
+Browser --> cache
+OS --> OS cache
+OS --> ISP
+OS --> DNS Server --> DNS cache
+
+Root servers
+-------------
+ISP knows root servers.
+
+root servers are managed by independent organisations called as ICANN as non profit
+
+Internet corporation for assgined names and numbers
+
+they have 13 root servers across the world for high available purpose.
+
+Domain provider --> Hostinger --> to update root servers about the domain
+
+a user sivakumar bought a domain, and nameservers
+
+joindevops.online --> sivakumar
+ns1.dns-parking.com
+ns2.dns-parking.com
+
+
+ISP --> root server
+
+root server --> domain nameservers
+
+ISP --> nameservers(who is managing your domain) --> hostinger
+
+A --> your website point to which IP
+
+max 24hrs to reflect the domain
+
+we need to change the ownership of domain for automation
+--------------------------------------------
+hostiger will connect root servers and update change in nameservers
+joindevops.online --> ns-1122.awsdns-12.org.
+ns-1780.awsdns-30.co.uk.
+ns-922.awsdns-51.net.
+ns-291.awsdns-36.com.
+
+ISP --> AWS NS --> IP adress from AWS
+
+
+
+ 

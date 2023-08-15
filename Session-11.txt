@@ -1,0 +1,130 @@
+Whatsapp --> point to point, queue based
+Youtube --> publish and subscribe, topic
+
+DNS
+-----------
+joindevops.com --> .com TLD
+
+Records
+-----------
+A --> ipv4 address
+
+installation
+configurations
+deployments
+
+without Shell Scripting
+------------------
+1. manual installations
+2. time taking
+3. easy to do mistakes
+4. more time if you have to do multiple times
+
+20 commands to deploy user component
+-------------------------
+
+keep 20 commands in a file and run at a time --> shell script
+
+shell script is native scripting of Linux servers
+
+if you want to do anything in linux that should go through shell..
+
+python is application inside linux server.
+
+python --> shell 
+
+10 hindi persons --> Hindi
+5 hindi 5 english --> English
+
+something out of linux go for python
+
+9AM --> 9PM
+
+I need to stop DEV EC2, RDS instances outof office hours
+
+script --> AWS Cloud
+stop at 9PM
+start at 9AM 
+
+Automations inside Linux, that is internal...go for shell script
+Automations outsid Linux, that is external .. go for python script
+
+Coding
+1. Programming --> Java, Python(programming), Go, NodeJS --> less time, more perfomance, less resources --> Data structures, algorithms, design patterns
+
+2. Scripting --> automation --> instead of manual tasks
+
+variables
+data types
+conditions
+loops
+functions
+
+in a genereal way what should be done
+-------------------------------------
+
+Source code management/ version control system
+------------------------------------------------
+
+1. you should not store coding in laptops/desktop
+2. you should store in repos for safety/security
+3. version control, you can go back to previous versions
+4. branches --> master --> PROD
+	create a branch from master --> edit the changes --> raise a PR --> every team member can review the changes --> if good then approve and merge
+5. you can track who is doing what
+	
+
+	do one more copy of important file
+	edit the copied file
+	check for syntax/error
+	if everything is file, then you replace original file
+
+IDE --> Integrated development enviroment --> VS Code
+
+Git --> concept of vcs
+
+GitHub --> public/ private installation --> they will give their package --> we need to install in our own servers
+GitLab
+BitBucket
+
+https://github.com/ --> you are storing code in github servers
+
+ec2 --> github.joindevops.online --> install GitHub
+
+repository --> stores something --> storing the code
+
+GitHub
+----------------
+1. create repo
+2. clone into your laptop
+3. select the main branch. usually we keep master as main branch
+	git branch -M master
+4. do some coding
+
+GitBash
+1. SSH client
+2. Git client --> Git Servers
+
+GitHub is de centralised distribution system
+------------------------------------------
+centralised capital --> everything in a sinle place
+
+de centralised capital
+	delhi --> all the gov building
+	bang, hyd, chennai --> software
+	kolkata, mubai --> industrial
+	
+as a de centralised system --> you need to preserve the history
+
+git add README.MD --> saving the changes into temp/stagig area
+git commit -m "First time commit" --> commiting the changes into local repo
+
+git config --global user.email "info@joindevops.com"     --> we need a user email to understand who did this change
+git config --global user.name "sivakumarreddy"
+
+git push origin master --> pushing the changes to central repo
+1. token based
+2. SSH based
+
+1. create repo in central, and work with it
+2. you have existing folder, how can you push

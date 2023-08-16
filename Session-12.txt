@@ -1,0 +1,124 @@
+user module
+	sign up
+	login
+	forgot password
+
+svn --> there is no chance of temp area, you have to push everything, you can't select
+
+DAY-1 --> sign up
+
+Git
+---
+git add signup.java --> completed
+login.java --> inprogress
+forgot.java --> inprogress
+
+git clone <URL> --> clone the code
+git add <file-name> --> to add files to staging area
+git commit -m "meaningful message" --> commit to local repo
+git push origin master --> push changes to central repo
+
+SSH Authentication to GitHub
+---------------------------
+ssh -i <private-key> username@IP
+
+
+SSH Authentication to GitHub
+------------------------------
+1. import the public key in github server.
+2. .ssh folder in user directory
+	create a file called config no extensions like config.txt
+	
+If you have existing folder, how can you push to GitHub
+------------------------------------------------------
+1. git init
+2. create repo in github server
+3. connect git local repo and central repo through
+
+git remote add orign <make-sure-you-use-ssh-url>
+
+git remote add origin git@github.com:sivadevopsdaws74s/concepts.git
+
+#!/bin/bash --> shebang
+
+you should inform linux server through shebang, how to execute the script
+
+#changing the URL
+git remote set-url origin git@github.com:sivadevopsdaws74s/shell-script.git
+
+bash = shell
+
+sh <script-name>
+
+variables
+data types
+conditions
+loops
+functions
+
+
+variables
+-------------------------
+DRY --> don't repeat yourself
+
+x=1, y=2, z=3
+
+derive the formula, finally you submit
+
+create a variable and assign value to it...
+
+wherever you are using instead of value, replace it with variable name..
+
+
+<variable-name>=<value>
+
+1. declaring inside the script
+2. how to execute a command inside shell script and take the output
+3. you can always get the values of variables from command line
+
+sh 03-variables.sh Ram Raheem
+
+I want a program to add any 2 numbers
+--------------------------------------
+
+4. I am going to connect to DB, so I need password
+
+prompt the user to enter
+
+read command --> it takes the input from the terminal
+
+int i=0
+float a=2.3
+deecimal
+boolean true/false
+string name=sivakumar
+
+NUMBER1=$1
+NUMBER2=$2
+# I need to run a command inside shell to add these 2 numbers
+SUM=$((NUMBER1+NUMBER2))
+
+echo "Addition of 2 numbers is: $SUM"
+
+int i=$1
+int j=$2
+
+int sum = $(i+j)
+
+don't worry about data types, shell script can intelligently understand
+
+1. number is a general data type..
+
+2. boolean 0 and 1
+	0 --> failure
+	1 --> success
+	
+3. array --> it can hold multiple values
+
+
+ssh authentication
+existing folder how you intialise and push to github
+start shell scripting
+
+master --> main branch
+main --> main branch

@@ -1,0 +1,140 @@
+condition in shell script
+------------------------
+
+7 days
+MON-SAT have school
+SUN is holday
+
+today
+
+if(today=="sunday"){
+	print holiday, enjoy
+}
+else{
+	print go to school, happy larning
+}
+
+
+if(expression){
+	expression=true, then statements here will run
+}
+else{
+	if above is expression is false, then this will run
+}
+
+algorithm
+----------------
+install git
+
+1. you should be root user, otherwise it will fail
+
+
+if [ expression ]
+then
+	these commands will run if expression is true
+else
+	these commands will run if expression is false
+fi
+
+1. check root user or not
+2. if not root user, exit the program and inform user to run with sudo access
+3. if root user install mysql
+
+
+root user id -u --> 0
+normal user id -u --> not 0
+
+100 statements
+
+you got error at statement 10,
+
+shell script by default it will not stop if it faces error, it is our responsibility to check for the errors
+
+exit status
+---------------
+$? --> it will store the previous command status
+
+$? --> 0 then previous command is success
+$? --> 1-127 previous command is failure
+
+less lines of code, more work
+
+functions
+---------------
+you will keep some code inside functions which is more often repeated, and call whenever you erquire
+
+functions will do some work on behalf of us and it will update what happend
+
+FUNCTION_NAME(){
+	here you write your statements, and call this function wherever required.
+}
+
+you need to give inputs, then functions will give output
+
+
+FUNCTION_NAME
+
+log files are important to know what happend
+
+redirections
+----------------
+> --> it will only redirect success output
+
+1 --> success
+2 --> failure
+& --> both success and failure
+
+ls -l > ls.log
+
+ls -l 1> ls.log
+
+ls -l &>ls.log
+
+> --> it will remove previous content, and adds new content
+>> --> it will not remove, it will append
+
+$1--> first argument
+$2--> second argument
+
+colors in shell scripting
+-----------------------
+
+\e[31m --> red
+\e[32m --> green
+
+
+loops
+---------------
+if you ask 10 packages to install
+I want to loop it, then install one by one...
+
+for(int i=0;i<100;i++){
+	print i
+}
+
+0
+0<100 - true --> then it will enter
+print 0
+1
+1<100 --> then it will enter 
+print 1
+2
+.
+...
+
+...
+99
+99<100
+print 99
+100
+
+for variable in list
+do
+	write your statement
+done
+
+sudo sh 12-loops.sh git mysql postfix 
+
+you run a command multiple times --> duplicates may create
+you run a command multiple times --> nothing will happen
+

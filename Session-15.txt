@@ -1,0 +1,53 @@
+disk usage
+------------------
+we need to continously check disk memory and send alert emails if it is more thn threshold
+
+assignment
+---------------
+install gmail in linux server through shell script
+prompt user for gmail username, password and complete installation
+
+
+
+algorithm
+-----------
+1. check disk memory
+2. compare with threshold(10)
+3. if more than threshold trigger alert email
+
+command to check memory
+
+df -hT --> to check disk memory
+ccozeaekfdtgqchg
+
+us-east-1c --> EBS also should be in the same AZ
+
+F
+G
+
+usually you have lot of alerts, you need to prepare template email and trigger this with respective alerts and email messages.
+
+sed editor
+--------------
+streamline editor --> temp editor --> it will do changes temp not perm
+
+CRUD
+---------
+creation of line
+update the lines
+delete the lines
+
+sed -e '1 a Good morning' passwd
+adding good morning after line to file passwd
+
+I want before line 1
+sed -e '1 i Good morning' passwd
+
+if you want perm use -i option instead of -e
+
+sed -e 's/<word-to-find>/<word-to-replace>/' <file-name>
+this one will replace the first occurence in every line
+
+if you want all occurences you need to use g, g for global
+
+sed -e '/word-to-delete/ d' passwd

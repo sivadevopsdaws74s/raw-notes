@@ -1,0 +1,64 @@
+Variables
+data types
+conditions
+loops
+functions
+
+persist the logfiles --> output redirection
+color --> user experience
+validations --> exit status, we need to take decission
+
+algorithm
+----------------
+task: install multiple package with single script
+
+user will pass the packages through command line
+
+user should have root access
+while installing store the logs
+implement colors for user experience
+before installing it is always good to check whether package is already installed or not
+if installed skip, otherwise proceed for installation
+check successfully installed or not
+
+
+we need to delete log files more than 2 weeks
+
+/home/centos/app-logs
+
+only .log files should be deleted, dont delete any other files
+go to the folder
+get all the log files with extension of .log
+check the date
+if date is more than 2 weeks old delete
+
+find /var/log -name "*.log" -type f -mtime +14 
+
+sh <script-name> --> for this no need of execute permission
+./<script-name> --> it should have execute permission
+
+
+disk usage
+------------------------------
+write a shell script that should check disk usage every one hour, and send alert email if it is consuming more than 80%
+
+you need to have gmail installed in linux
+
+
+we dont have browser
+everything is command
+
+tcs --> @tcs.com @cts.com
+
+joindevops:ryqwlakesqnmlxcd
+
+[smtp.gmail.com]:587 joindevops:ryqwlakesqnmlxcd
+
+1. upload public key in github
+2. create config file in .ssh folder
+3. change the origin to git@ instead of https
+4. now you try to push
+
+
+
+

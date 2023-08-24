@@ -1,0 +1,112 @@
+create instances automatically
+create route53 records
+
+AWS command line
+
+IAM --> Identity access management
+
+Authentication & Authorization
+--------------------------------
+Username and password --> authentication
+AWS has 1000's of services, if you create user he can't get admin access, you will give limitd access
+
+i.e permissions --> you will give certain permissions
+
+User
+Group
+Permissions
+
+Roles --> for non humans, you should attach this role to the AWS services so that they cant resources.
+
+AWS services also should have certain permissions, so that they can't create resources
+
+Roles
+--------
+1. what is the service --> Ec2
+2. What are the permissions --> 
+
+
+aws ec2 run-instances --image-id ami-03265a0778a880afb --instance-type t2.micro --security-group-ids sg-0189d4870cc65fd55
+
+1 -- 0
+2 --> 1st index
+
+create all the instances mongodb redis mysql rabbitmq catalogue user cart shipping payment dispatch web
+update route 53 record
+
+|| --> or
+&& --> and
+
+aws route53 change-resource-record-sets --hosted-zone-id Z098285010FMU6PDV8O9P --change-batch '
+{
+            "Comment": "CREATE/DELETE/UPSERT a record ",
+            "Changes": [{
+            "Action": "CREATE",
+                        "ResourceRecordSet": {
+                                    "Name": "$i.$DOMAIN_NAME",
+                                    "Type": "A",
+                                    "TTL": 300,
+                                 "ResourceRecords": [{ "Value": "$IP_ADDRESS"}]
+}}]
+}
+'
+
+Ansible
+-----------------
+1. shell script is homogenous
+useradd roboshop --> centos
+adduser roboshop --> ubuntu
+one shell script can only work one particular distro
+2. every time we need to do validations
+3. if you have 1000 servers, you need to login and run the script.
+4. imperative vs declarative
+
+imperative --> little tough syntax, very strict syntax and follows in sequence
+declarative --> easy syntax, no need of sequence, you can write anywhere
+				whatever you write you will get it, simple syntax
+				
+				
+1. ansible can query th server, it can understand what OS it is, based on that it can change the command
+2. you no need to write validations
+3. ansible can connect any no of servers, no need to login to the server
+4. declarative, no need of sequence and easy syntax.
+
+Before Ansible
+-----------
+puppet
+chef
+
+Pull
+--------------
+Configuration Server --> chef server
+Nodes
+-------
+1. First nodes will connect to server
+2. Pull the configuration
+3. RUn the configuration
+
+we need to schedule how frequently nodes should connect to server. like once in 30min
+
+Push
+--------------
+Configuration Server --> Ansible server
+1. Server will directly push and run the configuration
+
+LIC
+--------
+you pay to agent
+agent pay to LIC office
+
+LIC
+--------
+LIC is directly sending notifications about payment
+
+Push vs Pull
+-----------
+pull mechansim will have additional agent software
+there may not be change in configuration every time, change in configuration is very rare wastage of data.
+
+shell script --> keeping all the commands in a file with variables, conditions, loops, etc
+playbook --> keeping all the ansible collections(i.e command in linux) and run it
+
+YAML --> yet another markup language

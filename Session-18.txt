@@ -1,0 +1,116 @@
+Delhi --> HYD
+--------------
+
+5 days
+1 day
+2nd day
+3rd day
+4th day
+5th day --> you got the letter
+
+whenever letter arrived a person can deliver to your home on 5th day..
+
+IP
+Username
+Password/private key
+
+inventory --> list of hosts your ansible server is managing
+	node1
+
+roboshop
+
+geography --> IN, US, UK, AU, etc
+env ---> DEV, QA, PROD
+component --> web, app, db
+server --> mongodb, cart, catalogue
+
+roboshop-us-dev-db-mongodb-01
+roboshop-us-dev-db-mongodb-02
+
+roboshop-in-prod-app-cart-01
+
+
+I want to install nginx inside node-1
+--------------------------------------
+yum install nginx -y --> command
+ansbile --> module/collection
+
+command-name <options> <inputs>
+cp <source> <destination>
+
+module/collection name <parameters>
+
+Adhoc commands
+-----------------------------------
+
+ansible -i inventory mongodb --become -e ansible_user=centos -e ansible_password=DevOps321 -m ansible.builtin.yum -a "name=nginx state=installed"
+ 
+ansible -i inventory mongodb -b -e ansible_user=centos -e ansible_password=DevOps321 -m ansible.builtin.service -a "name=nginx state=started"
+
+sudo systemctl start nginx
+
+installed roboshop manually through commands one by one
+placed all the commands in a file i.e shell script and ran at once --> reuse
+
+playbooks --> keep all ansible modules/collections in a YAML file and run that file
+
+YAML syntax
+-------------
+yet another markup language
+HTML --> hyper text markup language
+
+XML -> extensible Markup language
+--------------------
+
+bank --> deposit money
+
+PERSON-1
+--------
+name: sivakumar
+ac no
+date
+amount
+branch
+denomination
+
+PERSON-2
+--------
+ac no
+name
+date
+denomination
+branch
+
+template/form
+--------------
+easy for cashier to find the fiels
+
+Name
+Ac No
+Amount
+Date
+Branch
+
+DTO --> data transfer objects
+-----------------------------
+singup
+
+you need to take user info and send user component in backend
+
+key --> value
+nested --> key
+	key --> value
+	
+YAML
+----------------
+indentaion --> proper gap/space
+
+Playbooks --> YAML
+-----------------------
+shell --> ${VAR_NAME} or $VAR_NAME
+Ansible --> "{{VAR_NAME}}", it should be always in double quotes
+
+
+
+
+

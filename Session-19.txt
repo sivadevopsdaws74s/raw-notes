@@ -1,0 +1,50 @@
+inheritance
+------------------------
+father --> earned some property
+children --> by default they inherit the property
+you can change the property, 
+
+you inherit the values from parent, as a children you can override the values, you can add the values
+
+Number
+String
+List
+Map
+Boolean
+
+conditions
+----------------
+if [ expression ];
+then
+	these command will run if true
+else
+	these command will run if expression is false
+fi
+
+when expression is true then module/collection will run, otherwise it will not run
+
+
+creating roboshop username
+------------------------------
+1. check user exists or not
+2. create if not exists
+
+OUTPUT=$(command to run)
+
+{
+'changed': True,
+'stdout': '',
+ 'stderr': 'id: ‘roboshop’: no such user',
+ 'rc': 1, #this is exit status
+ 'cmd': ['id', 'roboshop'],
+ 'start': '2023-08-29 02:51:26.929937',
+ 'end': '2023-08-29 02:51:26.936933',
+ 'delta': '0:00:00.006996',
+ 'failed': True,
+ 'msg': 'non-zero return code',
+ 'stdout_lines': [],
+ 'stderr_lines': ['id: ‘roboshop’: no such user']
+}
+
+
+first check directory exists or not

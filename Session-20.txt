@@ -1,0 +1,26 @@
+loops
+
+loop:
+- Sivakumar
+- Ramesh
+- Raheem
+- John
+
+{{item}} - 1st item Sivakumar
+2nd item -- Ramesh
+3rd item -- Raheem
+functions --> while improving our roboshop
+
+Ansible Roboshop
+-------------------
+1. we install all components using ansible
+2. we will improve with best practices.
+
+{
+'changed': False,
+ 'stat': {'exists': False},
+ 'failed': False
+ }
+ 
+ 1. remove directory and create again --> 
+ 2. remove the files inside html directory --> more steps

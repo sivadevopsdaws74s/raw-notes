@@ -1,0 +1,132 @@
+Linux Admin
+Project
+Manually
+shell scripting
+Ansible
+1. manual
+2. shell scripting
+3. Ansible --> more preferred, config as a code
+
+DEV, QA, PRE-PROD, UAT, PROD
+
+inconsistent config across env
+
+Infrastructure
+---------------
+Infrastructure as a code --> IaaC/IaC
+Terraform --> IaaC very popular
+
+ENV setup
+
+advantages
+--------------
+1. version control
+	since terraform is a code, it should be kept in version control, so that we can maintain the history and we can revert to previous version if something goes wrong.
+2. consistent infra
+	same terraform code you run against multiple env, so all env is exactly same.
+3. CRUD --> create read update delete
+4. inventory management
+	by seeing terraform, you can say what are the services and resources you are using for a particular project.
+5. cost optimisation...
+	when you need you create infra, when not required you delete the infra
+6. dependency management
+	Ec2 --> Security group
+	first create security group and then create Ec2
+	Ec2, sg code
+7. modules --> reuse the code..
+
+DRY --> dont repeat yourself
+Common --> use it wherever required, central
+
+imperative/declarative
+
+terraform is popular declarative scripting for infrastrcuture automation. easy syntax, no need of sequence execution, we will get it whatever we write if we follow syntax
+
+IDE --> vs code
+Terraform.exe keep it in a folder and set the path
+AWS CLI V2
+
+Authetication
+------------------
+create IAM user with admin access
+generate access key and secret key
+aws configure, give us-east-1
+
+Hybrid IaaC
+----------
+providers
+-----------
+AWS
+Google cloud
+Azure
+GitHub
+
+our website
+---------
+develop providers
+terraform can create resources into our website
+
+Roboshop
+-----------
+create users or signup
+
+you can develop roboshop terraform provider and you can use terraform to create users
+
+creation of Ec2
+----------------
+
+HCL --> hashicorp configuration language, very simple
+
+variables
+data types
+conditions
+loops
+functions
+
+resource "what-resource" "name-your-resource-your-wish"{
+	arguments/options/parameters
+}
+
+
+what-resource --> you need to get from terraform documentation
+
+
+OS
+Key
+Security group
+Storage
+
+AMI --> mandatory
+security_groups --> optional, if you dont provide SG, default SG will selected
+
+creation of resource
+----------------------
+1. provider --> you need to tell terraform which provider you are using..
+2. ec2.tf
+
+terraform init --> this will intialize terraform
+terraform plan --> terraform will tell us what are the resources it is going to create
+terraform apply --> it will create the resources
+github --> code
+
+not to push big files or movies or songs, etc...
+
+variables and datatypes
+
+variable "variable-name" {
+
+
+}
+	
+string
+number
+bool
+map
+list
+
+1. I will create aws security group
+
+2. I will attach this security group to ec2
+
+
+type.name-of-your-resource.name

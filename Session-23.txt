@@ -1,0 +1,82 @@
+Ansible.cfg
+Multiple environments
+Tags
+functions
+heterogenous
+parellelism
+
+1. ANSIBLE_CONFIG -> ENV variable
+2. current working directory
+3. home directory, it should be .ansible.cfg
+4. /etc/ansible/ansible.cfg
+
+username
+private key
+inventory
+
+Multiple environments
+---------------------
+we will have DEV and PROD
+how can ansible configure multiple environments with single playbook
+
+working in DEV, not working in PROD
+
+Ansible playbook --> you have to use for both DEV and PROD
+
+OS, OS version, Packages and their versions, services and their status, directory, permissions, etc...
+
+IP address --> DEV and PROD have different IP
+password --> in DEV DB password is different, PROD DB password is different
+
+by having diff inventory
+not recommended to keep in github or any where users can read, 
+secrets manager --> store passwords here, retreive at run time
+pass from command line or prompt
+
+tags
+
+parellelism
+----------------
+ansible can connect to all servers at a time
+
+1000 catalogue
+to connect 1000 servers, ansible servers should have more RAM, CPU, etc.
+
+6 servers, nginx install
+
+heterogenous
+------------
+multiple linux distributions
+
+Ubuntu --> adduser
+Centos --> useradd
+
+- name: Add the user 'johnd' with a specific uid and a primary group of 'admin'
+  ansible.builtin.user:
+    name: johnd
+    comment: John Doe
+    uid: 1040
+    group: admin
+	
+gather_facts: 
+
+it will check dynamically what is distribution
+
+Catalogue
+---------------
+ubuntu
+
+cart
+-------------
+centos
+
+
+filters
+---------
+sivakumar --> SIVAKUMAR
+
+
+
+
+
+

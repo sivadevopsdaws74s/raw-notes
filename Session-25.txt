@@ -1,0 +1,92 @@
+Universal concepts
+----------------------
+variables --> inputs
+data types
+conditions
+loops
+functions
+
+additional concepts
+----------------------
+outputs
+locals
+data sources
+
+
+output "output-variable-name" {
+	value = "value"
+}
+
+map
+
+tags --> simple but powerful
+
+key=value
+
+Name=some-name
+Environment=DEV/QA/PROD
+Terraform=true
+Component=MongoDB
+Project=Roboshop
+
+conditions
+----------
+if(expression){
+	if true these statements run
+}
+else{
+	if false these statements run
+}
+
+expression ? "this will run if true" : "this will run if false"
+
+if MongoDB we are creating t3.medium otherwise t2.micro
+
+
+loops
+-----------
+1. count and count index
+
+
+functions
+-----------
+I want to crete ec2 instance with key
+aws-linux-2
+with key
+provide public key to the instance
+
+1. create public key
+2. create ec2 instance
+
+
+locals
+------------
+locals is also a type of variables, but it can have expressions and functions
+
+
+AMI ID are frequently chaning
+AMI ID is different for different environment
+
+data sources --> you can query the data dynamically from source i.e AWS
+
+I want to create security group in default VPC,
+
+you have old resources created manullay, now you are using terraform to create resources and you have dependency on old resources, so you use data source to fetch info dynamically
+
+
+
+t2.micro --> t3.medium
+
+t2.micro --> m4.xlarge
+
+1. change the existing resource --> update resource
+2. terminate the resource --> create new resource [you lose the data]
+
+if web you need to have public ip
+otherwise private ip
+
+for loop
+dynamic blocks
+terraform state and remote state
+terraform.tfvars
+

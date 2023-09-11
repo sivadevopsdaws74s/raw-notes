@@ -1,0 +1,66 @@
+variables and data types
+conditions
+expression ? "true statements" : "false statements"
+count and count index
+data sources
+locals --> you can run expressions and functions in local
+outputs --> to print the output on to terminal
+
+loops
+---------------
+count and count index --> iterate on list
+
+for each --> map/list
+
+let's create 10 instances using for loop
+
+mongodb and mysql t3.medium
+for others t2.micro
+
+for_each when you iterate over a map, it will give us one special variable i.e each
+
+each.key and each.value
+
+dynamic block
+
+count or for each is to create more resources with single syntax
+
+state and remote state
+-------------------------
+declarative scripting that can create resources based on tf files
+
+declarative = terraform responsibility to create resources whatever you write in tf files
+
+tf files = declaration = ordering terraform
+
+state = terraform has to know what resources it is created
+
+terraform.tfstate = terraform will see this file to understand the resources it created already
+
+tf files = terraform.tfstate
+
+now tf files dont have egress but terraform.tfstate has egress
+
+to delete egress and update terraform.tfstate
+
+terraform is a declarative scripting, terraform responsibility is to create resources declared in tf files, terraform will create terraform.tfstate to understand the resources it created
+all the time terraform tries to match tf files with state file
+
+
+remote state
+------------
+we have few serious problems if you keep state file in the repo or local folder
+
+devops engineer 1 and devops engineer 2 joined the project
+
+engineer1 --> he will clone
+engineer2 --> he will clone
+
+1. duplicate resources
+2. error while creating resources saying already exist
+3. accidental changes
+
+
+s3 bucket, you keep your state file and lock with dynamo DB
+
+

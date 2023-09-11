@@ -1,0 +1,61 @@
+tfvars
+------------
+Ansible --> config code is same, but how can we use same code to configure multi ENV
+hosts and different variables
+
+IaaC
+-------------
+consistency across multi ENV, we can use same code but different variables
+
+we need 10 instances in DEV and 10 instances in PROD
+
+r53 records
+--------
+mongodb-dev, mongodb-prod
+
+1. variables.tf --> you can keep default values here, it is not mandatory to keep default values. but you should declare variable.
+2. terraform.tfvars --> to override default values inside variables or else no need to keep default values inside, we can directly provide from tfvars file
+
+
+1. different variable values
+2. different state, you need to give different location to store PROD state
+
+multi ENV
+----------------
+1. maintain different repos
+	roboshop-DEV
+	roboshop-PROD
+	
+pros: code is completly different, so that we dotn mess with DEV and PROD
+cons: you need to work on multiple repos, code is duplicated in 2 repos
+
+2. same code but different variable and config
+
+pros: code is reused
+cons: you should be very careful while chaging, same code is reflecting to PROD also
+
+3. terraform workspaces
+
+
+Jenkins CICD or manual
+-------------------------------
+
+DEV
+terraform init -reconfigure -backend-config=DEV/backend.tf
+
+PROD
+terraform init -reconfigure -backend-config=PROD/backend.tf
+
+
+Modules
+-----------------------------
+DRY --> dont repeat yourself
+
+you create code, reuse it instead of writing same again and again
+
+we will create code --> modules
+
+whenever you need you can always call modules
+
+keep code in one folder, call it from any no of repos
+

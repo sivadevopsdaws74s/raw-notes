@@ -1,0 +1,192 @@
+tfvars
+	to replace default values in variables or if values are not specified in variables.tf we can supply from here
+	
+	to create multi ENV infra, we can control through different variable values and diff state.
+	
+Module creation
+	DRY --> keep the code centralised, you can refer the code as many times as you want.
+	
+	jar files --> libraries --> you no need to create code from the scratch, you can simply refer from internet
+	
+	package.json
+	
+VPC --> virtual private cloud
+
+IPv4 Address --> 32 bits --> 4 octets --> each octet consists of 8 bits
+
+binary --> 2 digits --> 0,1
+decimal --> 10 digits --> 0,1,2,3,4,5,6,7,8,9
+
+binary system
+--------------
+
+1 bit
+--------
+_ --> 0
+
+_ --> 1
+
+2 bits
+-------
+_ _ --> 00
+
+_ _ --> 01
+
+_ _ --> 10
+
+_ _ --> 11
+
+3 bits
+-------
+
+_ _ _ --> 000
+
+_ _ _ --> 001
+
+_ _ _ --> 010
+
+_ _ _ --> 011
+
+_ _ _ --> 100
+
+_ _ _ --> 101
+
+_ _ _ --> 110
+
+_ _ _ --> 111
+
+
+in binary system if you have n bits, you can generate 2^n combinations
+
+32 bits --> 2^32 --> 4.3 billion
+
+2 bits
+-------
+_ _ --> 00
+
+_ _ --> 01
+
+_ _ --> 10
+
+_ _ --> 11
+
+if I select 1 bit, then how many parts I can divide entire system
+
+we have K parts in total, out of this if you select n bits
+parts = 2^n
+each part contains --> 2^n-1
+
+k=3=total bits
+n=2
+parts=2^2=4
+parts=2^n=2 parts
+each part = 2^(k-n)=2^(3-2)=2
+
+total no of bits = k = 4bits
+total numbers = 2^4 = 16 bits
+
+if I select 2 bits = n =2 
+how many parts = 2^2 = 4
+
+each part contains = 2^(4-2) = 4 numbers
+
+CIDR --> classless inter domain routing
+
+you get a big n/w --> you need to divide into multiple subnets logically
+
+10.0.0.0 to 10.255.255.255 (10.0.0.0/8)
+172.16.0.0 to 172.31.255.255 (172.16.0.0/12)
+192.168.0.0 to 192.168.255.255 (192.168.0.0/16)
+
+IP Address = Network ID + Host ID
+
+CIDR notation
+----------------
+10.0.0.0/8 --> first 8 bits are for Network, remaining 8 bits are for Host
+
+8 bits are reserved, you should not touch 8 bits
+
+24 bits
+-----------
+I want to divide into 2 parts. if I select 1 bit I can divide into 2^1 = 2 parts
+
+
+1 st part start with 0 and ends with 01111111
+
+
+0 position --> 2^0 = 1
+1 -> 2^1 = 2
+2 -> 2^2 = 4
+3 -> 2^3 = 8
+4 -> 2^4 = 16
+5 -> 2^5 = 32
+6 -> 2^6 = 64
+7 -> 2^7 = 128
+
+0 -> 127 = 1st part
+
+128 --> 255 = 2nd part
+
+10.0.0.0/9 --> 1st part
+10.128.0.0/9 --> 2nd part
+
+10.0.0.0/8 --> VPC CIDR
+
+2 subnets by selecting 1 bit
+
+1st subnet --> 10.0.0.0/9
+2nd subnet --> 10.128.0.0/9
+
+
+AWS will only 16-28 as CIDR notation. Min 16 max 28
+
+10.0.0.0/16 --> 16 digits for N/W and remaining 16 for host
+no of hosts = 2^16
+k=16
+n=8bits
+8 bits --> 2^8 --> 256 N/W possible
+each part contains 2^16-8 --> 256 possible hosts
+
+subnets
+-----------
+10.0.1.0/24
+ --> web related network 
+	10.0.1.0
+	10.0.1.1
+	10.0.1.2
+	
+	10.0.1.255
+10.0.2.0/24 --> app
+10.0.3.0/24 --> db
+10.0.4.0/24 --> mumbai web
+10.0.4.0/24 --> delhi web
+
+
+
+10.0.255.0/24
+
+VPC --> AWS virtual private cloud isolated from other projects, all project resources can be provisioned, we have full control
+
+internet gateway = wifi router
+
+public route 
+private route
+
+VPC
+Subnets --> 3 subnets
+Internet gateway --> attached to VPC
+2 route tables --> 1 public and 1 private
+
+associate route tables to subnets
+
+public route table --> public subnet(web)
+private route table --> private subnets(app,DB)
+
+VPC
+IGW
+Subnets
+Route table and routes
+associations
+security groups
+
+

@@ -1,0 +1,67 @@
+VPC
+
+we are going to develop VPC module, so that anyone in our organisation can use this.
+
+High Availability --> create resources in 2 AZ
+
+VPC
+IGW
+2 public subnets --> 1 1a, 2 1b
+2 private subnets --> 1 1a, 2 1b
+2 database subnets --> 1 1a, 2 1b
+group our database subnets
+seperate route table for public
+seperate route table for private
+seperate route table for database
+route table and subnet associations
+NAT gateway
+
+module --> terraform-aws-vpc
+
+roboshop-infra --> we will refer the terraform-aws-vpc
+
+
+ec2 instance
+
+resource "aws_instance" "ec2_instance"
+
+every resource have common tags
+	project roboshop
+	environment 
+	terraform
+	
+individual tags --> route table
+Name --> roboshop-public
+
+2 private subnets
+----------------------
+module developer, you need to create resource definition
+
+count = 2, you need 2 cidr that should come from user, 2 az that should again come from, merge common tags with private subnet names
+
+2 subnets
+aws_subnet.public[0]
+aws_subnet.public[1]
+
+aws_subnet.public[*] --> list of subnets created
+
+aws_subnet.public[*].id = ["subnet-01267e3f0a096eb72","subnet-02b6d0911a7eafa35"]
+
+100 teams in a amazon
+1 single team can develop modules
+
+100 teams can use it, less efforts
+
+central team can make some best practices and some security.
+
+to reduce the cost central team decided only 2 az...
+
+modules
+	1. code reuse
+	2. force some best practices and standars according to company
+	
+1. create your modules
+
+2. use open source modules
+
+

@@ -1,0 +1,81 @@
+Launch template
+Auto scaling
+Target groups
+LB
+Listenrs
+Rules
+
+Startup Project
+----------------
+1 person in each team
+
+UI --> 1 person
+Backend --> 1 person
+DB --> 1 person
+
+if employees are busy whole day, we need resources
+
+Take more persons into the team and give them KT...
+resources should be hired/fired continously based on the work
+
+CTO --> if they get UI work --> UI team
+Backend work --> backend team
+
+Catalogue
+-------------------
+we need to add more Catalogue instances if traffic is more
+
+instance launching configuration is called --> launch template
+
+autoscaling --> launch/terminate based on the traffic...
+input: launch template
+target groups: group of instances, catalogue --> 3 instances, this catalogue target group
+
+LB --> team manager --> he get some work, based on the type of work he will redirect
+
+ALB --> based on the conditions and rules --> /api/catalouge --> catalogue target group
+							  /api/user --> user target group
+listeners --> on which port ALB listens, http:80 https:443
+
+
+1 ALB  --> * Listeners
+1 Listener --> * Rules
+
+L2 support/firewall team
+----------------------
+these guys are only for validation of firewals and implement them
+
+mongodb_catalogue --> monodb is accepting connections from catalogue
+
+sg
+------------------
+vpn sg
+mongodb sg
+catalogue sg
+web sg
+private ALB SG --> app alb
+public ALB SG --> web alb
+
+Rules
+-----------------
+mongodb_catalogue
+mongodb_vpn
+
+catalogue_vpn
+catalogue_private_lb
+
+private_lb_web
+private_lb_vpn
+
+web_vpn
+web_public_alb
+
+public_lb_internet
+
+/api/catalouge --> catalogue target
+
+*.app.joindevops.online --> private lb
+
+catalogue.app.joindevops.online --> catalogue target group
+user.app.joindevops.online --> user target group
+

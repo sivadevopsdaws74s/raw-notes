@@ -1,0 +1,33 @@
+every component should have its own security group
+every component should call other components through LB...
+
+Target group --> Some Team
+	all instances are under one target group for a componetn
+	catalouge target group, user target group, etc.
+Launch template
+	Autoscaling will use this to increase the number of instances based on auto scaling policy
+Autoscaling
+	based on auto scaling policy instances will be increased/decreased
+ALB
+	balance the load between instances, it is intelligent
+Listener
+	ALB should listen usually on particular port.
+Rules
+	ALB will validate the rules and forward the request
+	
+create ALB
+create listener
+create route53 record, 
+
+I need to create target group
+I need to create launch template
+
+I need to crete autoscaling
+I need to create autoscaling policy
+I need to add rule to the ALB listener
+
+42.45.23.12/api/catalouge/categories
+
+http://catalogue.joindevops.online:8080/categories
+
+	

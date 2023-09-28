@@ -1,0 +1,44 @@
+ACM
+------
+create certificate by giving your domain
+DNS validation
+create records in hosted zone automatically
+
+https, 443
+you need to select certificate
+
+https://joindevops.online
+
+target group of web
+launch template of web
+autoscaling web
+autoscaling policy web
+a listener rule in alb to route the traffic
+web instance should get traffic from web alb on port 80
+
+1. https://joindevops.online
+2. route 53 and get the lb url
+3. request will load balancer
+4. load balancer sg should allow 443
+5. load balancer should have listener on 443
+6. Now rules will be evaluated
+7. it has rule joindevops.online as header
+8. now lb will send request to web target group
+9. web instance should allow traffic from web alb
+10. now request reached web instance and we got response
+
+https://joindevops.online/api/catalogue/categories
+
+https://joindevops.online --> will reach web instance
+
+
+http://catalogue.app.joindevops.online/ --> *.app.joindevops.online
+
+web instance is calling --> App ALB
+
+App ALB should allow traffic from web(not web alb) instance on port no 80
+
+in APP ALB
+-----------
+if host is catalogue.app.joindevops.online --> category target group
+category instance should allow traffic on port no 8080 from app alb

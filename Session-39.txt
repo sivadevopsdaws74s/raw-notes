@@ -1,0 +1,153 @@
+security groups
+EC2
+	Target group
+	launch template
+	auto scaling
+	auto scaling policy
+	ALB
+	listener
+	rules
+
+cart --> app alb(listener is on port no 80) --> catalouge
+
+app alb should accept connections on 80 from cart
+catalouge should accept connections on 8080 from app alb
+
+https://joindevops.online
+1. route53 will get web alb
+2. request will reach web alb
+3. a listener is running on port no 443
+4. if host is joindevops.online --> web instance
+5. we will get the home page of roboshop
+
+https://joindevops.online/api/catalogue/categories
+
+if host is joindevops.online --> web instance
+here in web nginx roboshop.conf
+
+we have a rule
+/api/catalogue/ --> catalogue.app.joindevops.online
+
+catalogue.app.joindevops.online --> APP ALB
+
+APP ALB is running on port no 80
+
+APP ALB listener 80 have a rule
+
+if host is catalogue.app.joindevops.online --> send to catalogue target group on 8080
+
+
+1. provisioners
+2. importing the existing resources
+
+Jenkins
+--------------------
+Continous Integration
+
+shell
+-------------
+laptop --> pushed to git --> pulled to instance --> run shell script there
+Ansible
+-------------
+laptop --> pushed to git --> pull in ansible server --> run ansible playbook
+
+Terraform
+-------------
+install git
+install terraform
+
+pull terraform repo
+run terraform commands
+
+tools
+------------
+1. install the tool
+2. pull the code
+3. run it
+
+Continous Integration
+----------------------
+an orchestration server, it can connect with any external tools or systems if you have that plugin/command installed
+
+plugin --> enable/disable functionality
+
+install plugin --> you will get features
+uninstall plugin --> your features will be removed
+
+CI server is nothing but a linux server, which has jenkins installed
+
+CI process
+-------------
+develop --> build(compile) --> scan the code --> create a package --> push to S3/nexus
+10 developers
+
+user
+---------------------
+1 person writing login functionality
+1 person is writing signup functionality
+1 person is writing forgot password functionality
+1 person is writing OTP functionality
+
+once we push user package to nexus/s3 --> CI completed
+
+once you have package avaialalbe you can deploy the application
+
+CI --> continous integration
+CD --> continous deployment
+
+bad process
+-----------
+login to jenkins server
+run the git command inside server
+run mvn command inside server
+run sonarqube command inside server
+run aws s3 push
+
+when developer push code to github
+
+events
+----------------
+1. you withdraw money -> event of withdrawal
+
+when an event fires into software, you can take few actions
+
+1. send sms
+2. send email
+3. send a notifiction AML team
+
+here the event is developer pushing the code to github
+
+now you can take few actions
+
+trigger jenkins ci job
+
+groovy
+-----------
+variables
+data types
+conditions
+loops
+functions
+
+1. clone
+2. build
+3. scan
+4. package
+5. push
+
+ansible to deploy to the server
+
+
+deployment day
+-----------------
+we will run manually build, scan, package and push
+
+sprint 14 days
+-----------
+day1 --> 100 lines of code --> CI
+day2 --> 200 --> CI
+
+day10 --> 2000 --> CI
+
+1. coding
+2. build or configuration

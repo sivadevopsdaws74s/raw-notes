@@ -1,0 +1,30 @@
+Jenkins is a standalone web application,
+UI
+Backend
+DB --> filesystem
+
+freestyle --> UI, can't restore easily, cant trace who did the changes, no version control
+pipeline
+	keep in git
+	version control
+	restore
+	review the changes
+	
+Farmer
+---------------
+Agriculture
+0.25 acres of land
+
+100 acres of land --> manage employees, overview the work
+
+take some employees
+
+master slave architecture
+
+master agent/node architecture
+
+1. employee can ask master for work --> employee is connecting to master
+2. when there is a work master can ask employee to do --> master is connecting to employee
+
+
+

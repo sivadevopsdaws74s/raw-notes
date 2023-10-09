@@ -1,0 +1,110 @@
+Ansible --> CM
+Terraform --> Infra
+Jenkins --> CI pipeline
+
+GIT --> SCM
+
+master --> we should not touch master branch
+
+Git --> distributed version control system
+
+local and remote
+
+local --> our computer
+remote --> github/gitlab/bitbucket
+
+creating/modifying files --> adding to staging area --> commit into local repo --> pushing changes into central repo
+
+few developers are joining to our project, we dont want changes into master directly
+
+master --> production
+
+take another copy --> edit that --> check once again --> make it as main copy
+
+create another copy --> do the changes --> do some checks --> if everything file then merge into master
+
+09c45cbc7f5bc783175fe951c2074c352104a3f0 --> 40 char sha code
+
+e39aeda2c04ac2f066256be908fee31a604349d8 --> Hello I am siva
+
+ny version control system calculate a universal unique for a content
+
+same content --> same code in any computer in universe
+
+as a member create feature branch do changes
+raise PR
+you can ask team membres to review, once you get approval you can merge into master
+
+always pull before push
+
+
+
+MERGE
+--------------
+when we did merge we will get extra commit depicting the merge
+history is preserved through parent object
+
+REBASE
+--------------
+no extra commit
+it will not preserve history
+it will change commit ids, it means it re write
+
+if you want to preserve history go for merge
+if you dont want to preserve history go for rebase
+
+
+merge strategies --> getting code from feature to master
+---------------------------------------------
+merge
+rebase and merge
+squash --> combing everything into one and rebase
+
+1 week or 2 weeks sprint, these are microservices, one feature is allocated to developer
+he may do lot of commits as part of his feature development
+while developing a feature, one feature is developed by one developer
+
+squash the commits as part of 1 feature and metion it as feature-name/no
+
+branching strategy
+---------------------------------
+master and feature
+
+we made a protection, no one is allowed to do changes in master directly, we should raise PR. minimum 3 approvals we should get
+
+we do changes in feature, raise PR and get the approval. while merging PR we choose merge option as our merging strategy.
+
+master --> main branch --> long live
+
+feature --> shortlived branch --> delete this branch
+
+
+trunk based --> only master
+
+you do changes here directly,
+
+you should have lot of checks --> before going to PROD
+
+master
+development
+release
+feature
+hotfix
+
+master
+feature
+
+master 
+
+team-lead --> he is working on one feature
+team-member --> he is also working another feature
+
+how you resolve merge conflicts?
+--------------------------
+if git finds diff content at the same line n, it cant take decision what to keep and what not to keep..
+
+git revert --> undo
+git cherrrypick --> picking some changes
+
+
+

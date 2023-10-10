@@ -1,0 +1,77 @@
+2 accounts
+---------------
+1 account --> DEV
+1 account --> PROD
+
+2 VPC
+------------------
+1 VPC--> DEV
+1 VPC --> PROD
+
+make sure all resources name have env
+name-env
+
+creation of infra re
+sources I am doing it from workspace not jenkins
+
+https://www.cyberciti.biz/faq/centos-8-set-up-openvpn-server-in-5-minutes/
+
+wget https://raw.githubusercontent.com/Angristan/openvpn-install/master/openvpn-install.sh -O centos-8-vpn.sh
+chmod +x centos-8-vpn.sh
+sudo ./centos-8-vpn.sh
+
+client
+---------
+https://openvpn.net/client/client-connect-vpn-for-windows/
+
+Ansible is push, but ansible recently added pull also for some advantages
+
+we were loading catalogue categories through catalogue app...
+it is DB team responsibility to load the data...
+
+install ansible
+
+ansible is developed using python, we need python evnironment to run ansible
+ansible to integrate with AWS, we need boto3 and botocore
+
+boto3 and botocore --> AWS python libraries
+
+ansible-pull -U <git-repo> -e variable playbook.yaml
+
+mongodb --> terraform --> creating ec2 --> user_data --> downloading ansible playbooks through pull --> running locally
+
+*.app.joindevops.online --> private ALB
+1 private ALB --> DEV
+1 private ALB --> PROD
+
+catalogue-dev.app-dev.joindevops.online --> DEV ALB
+catalogue-prod.app-prod.joindevops.online
+
+Infra
+	Project Infra --> VPC, VPN, LB, DB, Route53 --> eternal
+	Application Infra --> ephemeral
+	
+Application Infra --> DevOps Engineer or Developer responsibility
+
+
+Developer
+------------
+create feature branch
+change version
+
+every commit developer is doing to remote repo, we need to trigger pipeline that checks everything
+
+ansible --> catalogue --> parameters from SSM
+
+VM deployments
+----------------
+immutable --> cant change --> servers are fixed
+1 DEV --> IP always same
+
+ansible-playbook push can work
+
+
+mutable --> can change
+ansible-pull --> configure --> AMI
+input to ASG
+

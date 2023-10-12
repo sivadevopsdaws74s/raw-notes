@@ -1,0 +1,48 @@
+openvpn installation through user_data
+
+install catalogue components inside ec2 instance through ansible
+we should not user_data because, if the script fails terraform will continue..
+
+once instance created, call remote provisioner... copy the catalogue script into ec2 and run it
+ansible needs the version of the artifact as input
+
+when the instance is changed, it is the meaning of new ec2 instance created...
+you can have trigger, when instance change so that you can run provisioner..
+
+first we need to copy the file
+terraform is running inside agent... you need connection to catalogue EC2.
+
+catalogue is allowing traffic on port no 22 from instances connected to roboshop-vpn-dev SG
+add vpn sg to agent...
+
+does catalogue allow my local laptop? 
+yes --> because I connected to VPN
+
+Laptop --> VPN --> Catalogue
+
+1. trigger null resource
+2. connect to catalogue EC2
+2. copy the catalogue.sh into catalogue EC2
+4. Run it
+5. ansible needs the version of the artifact as input
+6. I need to pass artifact version to the script.
+
+inside jenkinsfile we have access to app_version variable...
+we are passing through terraform variables. make sure you have app_version declared inside terraform variables.tf
+
+pass that variable to the shell script at the time of execution...
+this shell script should send this variable to ansible.. ansible also should have that variable declaration at any place...
+
+user_data --> runs inside AWS EC2
+now ansible should download the package from nexus
+
+
+http://172.31.86.20:8081/repository/catalogue/com/roboshop/catalogue/1.3.0/catalogue-1.3.0.zip
+
+take AMI
+
+stop instance, and take AMI
+
+I want AMI name with component-yyyy:mm:dd:hh:mm
+
+

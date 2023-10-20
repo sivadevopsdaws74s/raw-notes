@@ -1,0 +1,99 @@
+jenkins shared library
+--------------------
+DRY
+you can implement all best standards in single place and force everyone to follow.
+if a change needs to be done, you can do single place
+we no need to pollute developer code with devops script
+
+groovy+jenkins pipeline syntax
+
+steps:
+---------
+1. write shared library
+2. configure in jenkins system
+3. refer in Jenkinsfile
+
+everything in shared library is a function,
+
+string
+list
+map
+boolean
+number
+
+map --> key/value pair
+list --> list of values
+
+I need to tell library, about language and deployment so that it can decide which pipeline to call...
+I need to tell the component like cart, catalogue, payment, etc.
+
+everything in a library is function, you can call a function particularly like <file-name>.<function-name>
+
+if you have a function with name call(). then no need to specially mention function-name.
+
+New Project
+------------------
+As a DevOps and Infra engineer we created
+
+DEV Infra --> here create a role for EC2
+CI --> shared library
+CD pipeline
+
+Developer wants to go for PROD
+
+As a DevOps and Infra engineer we need to create PROD infra
+
+
+1. maintain seperate repo
+2. control through tfvars and backend config
+
+/roboshop/dev/mongodb_url
+
+/roboshop/prod/mongodb_url
+
+ansible templates
+-----------------------
+
+
+IAM
+----------
+identity access management
+
+authentication --> prove you are company employee
+authorization --> prove you have access to particular project in a company
+
+User --> username/password or username/token or username/accesscard
+
+Role --> what is your role, employee or lead or manager or MD or CTO or CEO
+Permission -->
+	employee --> what are the permissions
+	lead --> what are the permissions
+	CEO --> what are the permissions
+	
+sivakumar joined a company
+-----------------------
+they will create user sivakumar in the system and assign a employee role
+
+sivakumar --> employee
+
+remove employee role and add lead role
+
+AWS
+---------------
+everything here is resource
+
+EC2
+	resource/noun: can he access all resources or particular resources
+	actions/verbs: create/update/read/delete
+VPC
+Route53
+SSM parameter store
+
+Role is not only for humans it is for resources also, so that you can control the access to your resources...
+
+ansible is running in EC2, now this ansible wants to have access to SSM parameter store
+
+so we have to attach role to EC2.
+
+
+

@@ -1,0 +1,73 @@
+Project Infra --> mostly one time, rare changes
+
+CI Process --> clone, build, unit test, scans, artifact upload
+
+application deployment
+----------------------
+Application infra --> ephemeral, changes every release
+we need to pass app_version so that ansible can download from nexus at runtime
+
+target group
+launch template
+auto scaling
+policy
+rule
+
+de-registration delay
+---------------------
+register --> register instance to target group
+de-register --> when traffic is decreased, we need to remove the instance...
+
+if a instnace is already serving few requests, may be 20 requests....
+
+clients will get some error....
+de-registration-delay --> 300 sec, it means instance is marked for de-register
+
+but it will not immidiately happen, it will wait for 5min to complete the exisiting requests
+
+at the same time it will not accept new requests
+
+destroy the current instance, and create new ASG...
+if destroy --> APP will be down
+you need to wait until it create again --> 5min
+
+create before destroy
+----------------
+create new autoscaling group and destroy the previous one
+
+CICD
+---------------
+
+change management process team --> business analyst
+------------------------
+CR request --> they will write what has to be changed, by which date
+client will decide version --> 1.4.0
+
+
+
+Shared libraries
+------------------
+DRY --> dont repeat yourself
+dont pollute developers code with devops code
+keep code in shared libraries,
+
+keep your CI code in shared library, parameterize it
+
+individual componets call those libraries by passing values to parameters
+
+catalogue
+--------
+nodejs
+vm deployment
+
+cart
+--------
+nodejs
+vm deployment
+
+user
+--------
+nodejs
+vm deployment
+
+I want to implement best standards of CI process in roboshop project

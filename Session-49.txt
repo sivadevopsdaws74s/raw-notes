@@ -1,0 +1,68 @@
+IAM concept
+---------------
+only read access through console
+
+create group(what is his position), add permission to group
+add user to group --> automatically he will get group permissions
+
+we had one work station, we were creating instances and R53 records through workstation...
+
+a user with admin access like terraform, we get secret key and access key
+
+a resource inside AWS can access other resources
+-------------------------------------------
+1. create a user and configure it inside EC2 using aws configure
+	once your credentials are exposed, hackers will have full access
+	user has to frequently change credentials, again run aws configure and update the creds
+2. Use Roles instead of users directly
+	User --> human
+	Role --> non humans, create a role for EC2(EC2 is non human) and attach that role to EC2
+	
+	AWS will frequently rotate the credentials automatically
+	
+aws ec2 run-instances --instance-type t2.micro 
+
+thin access --> 
+
+Roboshop
+--------------------------
+We are installing catalogue in EC2, catalogue needs to access configuration stored in SSM parameter store
+
+We are developing applications, apps need configurations like DB URL, username, password, any other system configurations, etc.
+
+if configuration is hard coded, whenever there is a change in config. application has to be rebuilt and redeploy
+
+always keep the config seperately from app code, refer config dynamically...
+
+if config is changed, just restart the application it will fetch new value automatically..
+
+catalogue EC2 instance needs to access SSM parameter store
+	1. aws configure
+	2. best is create a role for EC2 give SSM access
+	
+1. create a role
+2. attach policies
+
+IAM
+assign role to EC2 through terraform to access SSM parameter based on environment
+
+
+change mangement process
+---------------------
+DEV success
+PROD deploy --> a process of change
+
+you raise a CR ticket
+
+what is the change?
+what happened in DEV
+who needs to approve
+	team lead
+	team manager
+	business analyst
+	finally your client
+	
+	what happened to testing?
+	what happend to scanning?
+	take the test manager approval
+	

@@ -1,0 +1,89 @@
+DEV --> PROD CICD
+-----------------------
+-> created DEV and PROD infra
+-> make sure config exists in SSM parameter store
+
+client business analyst will take the requirements from client
+client business analyst discuss business requirements with project business analyst
+project business analyst have meeting with technical architects and delivery manager
+now requirements are finalised and dates are finalised
+team leader will assign the latest features to developers as tickets.
+
+
+-> now DEV push the code to GitHub.
+-> Lets have webhooks for all branches except master branch.
+https://valaxytech.medium.com/multibranch-pipeline-on-jenkins-with-webhook-a65decede4f8
+-> developer updates the version
+-> CI pipeline is called
+	shift left
+		unit testing
+		scanning
+			static scanning
+			SAST
+			open source scanning
+			image scanning
+	build once and run anywhere
+		whatever you built and deployed in DEV should go all the way to PROD with different config
+	DevSecOps
+-> shared pipelines
+-> DEV deployment is done automatically
+	functional testing --> testing team does this script and they give us commands, we configure in pipeline
+	
+Once DEV success
+------------------------
+we need to raise PR, and get it merged into master branch.
+
+raise a change request (CR), generally tools are available for every company
+
+change title, description,date, what happened in lower environments, who has to approve this request
+
+trigger PROD deployment
+
+DEV team will have some sanity testing..
+
+push the tags pointing to commit
+
+variables.tf --> declaration and default values
+x=10
+terraform.tfvars --> your values may not be for others
+x=20
+
+
+VMS
+---------------
+resource optimisation is not good
+	t3.medium
+		2 CPU and 4GB ram
+		0.5 CPU and 1GB ram is used
+immutability
+	servers are not immutable, anyone can change the config inside
+Application Server
+	server
+	install app runtime
+	install few other packages or libraries
+	install the application
+VM images are fat because of OS and resources,
+	bootup time is high in VM
+build once and run any where
+	if you dont have ansible, we cant gaurentee the configuration is same in all DEV and PROD servers.
+High Availability --> will not work immidiately based on the load
+Self healing --> something goes wrong, application should correct itself
+
+VM --> heavy --> lot of processes and services are running on that consumes more resources of system
+Docker image --> OS is very light weight. no un necessary packages, installtions
+				alpine --> 6MB
+				nodejs --> 100Mb
+				catalouge --> 15mB
+				150Mb
+				
+VM --> centos 8 --> using ansible we configured --> AMI --> 1GB(1CPU, 1GB RAM)
+Docker --> centos 8(light weight OS 150MB) --> using docker we configure --> Docker image 500 MB(0.5 CPU and 0.5 RAM)
+
+https://joindevops.medium.com/why-containerization-is-popular-how-to-understand-the-advantages-55261a17517c
+
+master and feature
+
+
+
+
+

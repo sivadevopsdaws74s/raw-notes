@@ -1,0 +1,122 @@
+robosho.war roboshop.ear --> all components in this
+user
+cart
+catalogue
+shipping
+we dont need physical/heavy VM --> images and containers are light weight
+
+VM
+--------------
+64GB RAM, 10TB HD
+
+logicaly dividing a single physical server into multiple VM
+hypervisor --> oracle vm virual vmware
+cart --> VM
+user -- VM
+catalogue --> VM
+
+Container
+---------------
+inside VM we can run multiple containers, so that we can even improve resource utilisation
+
+a single VM
+cart --> container
+catalogue --> container
+
+Docker
+------------------
+install docker in centoos8
+
+docker group is created
+
+usermod -aG docker centos, logout and login again
+
+image = VM
+
+AMI = CentOs 8 + nodejs/java/python + some packages/libraries + application code
+
+image is like complete suit/setup
+
+
+docker imges --> list down the images in the server
+docker pull image-name:version --> download the image from docker hub
+
+Nginx AMI = centos 8 OS + installed nginx + started and enabled
+
+OS can be anything + installed nginx and published to docker
+
+image = static
+container = when you run image you get container
+
+docker create [image-id]
+
+docker ps --> list down running containers
+docker ps -a --> list down all containers including running/stopped/exited/created
+
+docker start container-id
+
+ip:80 --> welcome page
+
+EVERY SERVER 0-65535 PORTS
+every container 0-65,535 ports
+
+pull image + created container + started container
+
+docker run image = pull+create+start
+
+docker rm `docker ps -a -q` --> removing all containers
+docker rmi `docker images -a -q` --> remove all images
+docker rmi <image-id> --> removes particular image
+
+docker run -p <host-port>:<container-port> image
+docker run -p 80:80 nginx --> runs in foreground and attaches to screen, we cant run anything
+
+docker run -d --> detach the screen and run in background
+
+docker exec -it <id> bash/sh
+
+docker logs <container-id>
+
+image+insalled packages+installed application and libraries --> static
+run windows image --> laptop keep running
+
+nginx = some bare minimum OS + nginx
+
+bare minimum OS = only required packages are exists
+
+How to create image?
+---------------------------
+Dockerfile --> declarative way of creating images
+
+base os
+
+docker --> runs on linux servers not windows
+
+docker desktop --> run it in windows. in background this software run a linux server in windows
+
+FROM --> to select base os
+RUN --> to install or configure inside base OS, it will run at image creation
+CMD --> it is to run the container, it will run at container creation
+
+systemctl start nginx --> systemctl will not work
+
+nginx -g daemonoff
+
+installed catalogue --> systemctl start catalogue
+
+while running container, your CMD command should keep your container running for infinite time
+
+nodejs server.js
+
+
+
+
+
+
+
+
+
+
+
+
+

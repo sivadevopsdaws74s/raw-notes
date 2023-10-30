@@ -1,0 +1,62 @@
+RUN --> at the time of image building docker build
+CMD --> at the time of container creation docker run
+
+1000 --> white bags from all super markets. you can tag them
+Orange --> more
+Blue --> Reliance
+
+Dockerfile -> create image using docker build --> run it as container
+
+catalogue --> mongodb
+mongodb url, port no, user name and password
+
+docker run <container-ID> command
+
+command --> env --> it will display the environment variables
+
+docker run -d -p 80:80 nginx
+"nginx", "-g", "daemon off;" --> running for specific time/infinite
+
+nodejs server.js --> runs for infinite time, app is running
+if you kill --> app is stopped
+
+writing dockerfile, building images, running containers
+
+push to dockerhub so that others can pull
+
+docker push <URL>/<username>/<image-name>:<version>
+
+docker push docker.io/joindevops/qi:v1
+
+docker run -d -p 80:80 joindevops/qi:v1
+ADD vs COPY
+-----------------
+ADD also copy files from local to container, it has 2 extra options
+
+1. it can directly get the content from internet and copy
+2. it can directly untar the file to the location
+
+
+docker run -d <image-ID> sleep 60
+docker exec -it <container-ID> bash
+
+docker run -it <image-ID> bash
+
+CMD vs ENTRYPOINT
+---------------------
+1. CMD command can be overriden by any command.
+2. ENTRYPOINT can't be overriden
+3. You cant override entrypoint, if you try to do it will do and append to entrypoint
+4. If user is not giving any options, CMD can supply default arguments to ENTRYPOINT
+5. user can always override CMD through terminal
+
+for best results combine both entrypoint and cmd
+
+ping -c5 facebook.com google.com
+ping -c5 google.com
+
+``
+''
+
+
+

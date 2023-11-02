@@ -1,0 +1,51 @@
+Dockerfile
+Building image
+running docker-compose
+
+Ansible
+------------
+AMI - centos8
+configured server
+	installed nodejs
+	cart
+	created user
+	copied application 
+	run application
+AMI --> heavy size and occupies more space compared to docker image
+
+Volumes
+-------------
+image/container in docker is ephemeral, data will be delete once you remove container
+
+if we run DB(RDMS/NoSQL/Redis/MQ) as container, by default data will be remove once container is deleted.
+
+1. un named volumes
+2. named volumes
+
+-p <host-port>:<container-port>
+
+-v <host-path>:<container-path>
+
+/usr/share/nginx/html
+
+-v /nginx-data:/usr/share/nginx/html
+
+/var/lib/docker/overlay2 --> temp volumes
+/var/lib/docker/volumes/nginx/_data --> named volumes
+
+1. you create directory
+2. we have to manage the directory
+
+named volumes
+----------------
+volume will have name,
+everything can be managed docker commands
+
+mongodb
+mysql
+redis
+rabbitmq
+
+best practices
+------------------------
+alpine the very less in size image..

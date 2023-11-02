@@ -1,0 +1,106 @@
+write Dockerfile
+build image
+and push image
+
+docker run --> how to run the image
+
+ARG
+--------------
+it will supply variables at the build time...
+
+mail.sh <to-email> <subject-line>
+
+almalinux
+	7
+	8
+	9
+	
+without changing the dockerfile I want to do this through variables
+
+FROM --> it should be the first instruction
+there is only one exception, ARG can be first instruction to supply the OS version to FROM instruction
+
+ARG vs ENV
+-------------------
+1. ARG variables only work in build time, but ENV variables can work in build as well as runtime/in container.
+RUN vs CMD
+CMD vs ENTRYPOINT
+ADD vs COPY
+
+ONBUIILD
+-------------
+We are developing docker images, someone else may use our images...
+
+as a image developer, I need to make some rules
+
+ONBUIILD instruction will not execute at the time of image build by developer...
+
+ONBUIILD will execute at the time of some one use your image
+
+1. I am publishing nginx image to repository.
+2. all my projects have to use this nginx image.
+
+Image
+How to run image --> container
+
+Docker Networking
+--------------------
+1. Host
+2. Bridge(default)
+
+
+docker0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+        inet6 fe80::42:cbff:fe60:83da  prefixlen 64  scopeid 0x20<link>
+        ether 02:42:cb:60:83:da  txqueuelen 0  (Ethernet)
+        RX packets 3574  bytes 1947753 (1.8 MiB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 4133  bytes 55557459 (52.9 MiB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+		
+mongodb --> 172.17.0.3
+web --> 172.17.0.2
+
+disadvantage of default docker bridge
+-----------------------------------
+you cant communicate containers with names..
+
+
+172.18.0.2
+
+mongodb://mongodb:27017/catalogue
+protocol://host-name/IP:port-no/schema
+
+docker run --> configuring image to run as container --> you should have image
+either local or somewhere in internt like hub
+
+<URL>/<username>/<image-name>:version
+
+
+manual docker run commands
+-----------------------
+you have to give all options through the command line
+dependency containers should run first
+start one by one --> mongodb, catalouge, user, web,etc.
+stop one by one
+
+docker run -d --name mongodb --network=roboshop mongodb:v1
+
+/api/user/
+
+for i in `ls -d */ | cut -d "/" -f1` ; do cd $i ; docker build -t $i:v1 . ; cd .. ; done
+
+
+node server.js --> directly we are running code
+java --> heavy programming language
+
+JDK and JRE
+JDK = compiler + JRE
+JDK > JRE
+maven will give JDK --> here we compile and package
+
+code --> compile(JDK) == bytecode = .jar file
+run bytecode(JRE)
+
+
+

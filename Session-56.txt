@@ -1,0 +1,78 @@
+keep the image size low
+use official images
+use multi stage builds
+dont run containers with root access
+keep the env seperate from code
+persist the logs
+maintain own network instead of default
+create docker volumes
+optimise layers
+	clud multiple instructions into one, for exmple multiple run into 1
+	keep frequently changing instruction at the end
+
+
+Docker architecture
+
+once docker image is created, we cant modify the image. docker image is immutable
+
+FROM almalinux:8
+1st instruction
+-------------
+pulls image --> will create container out of this image
+
+layer1 contaniner is created
+inside layer1 container docker is running 2nd instruction
+RUN yum install nginx -y
+now layer2 image is created...
+layer2 container is created by docker engine.
+in layer2 container layer3 instruction will run
+echo "Hello, Welcome to Dockerfile. A way of creating own images" > /usr/share/nginx/html/hello.html
+now layer3 image is created and that is final...
+
+Disadvantages
+-----------------------
+1. what happens if docker server is crashed
+	application goes down
+	you loose data also, docker volumes are inside the server
+2. what happens if you suddenly get more traffic
+	we have to run multiple containers
+3. how to balance the load if you have multiple cart containers
+	how can you balance...
+4. self healing
+	if container is crashed, how can you immidiately run another container
+5. what about configs and secrets
+	there is no environment to store secrets and configs
+
+
+docker run --> creating container out of image
+
+image --> physical file
+
+
+
+container--> running instance of image with some config
+
+we give kubernetes to take charge of running the images as orchestrator
+
+docker swarm vs kubernetes
+------------------------------
+networking and storage solutions are beter in K8
+
+cluster
+------------
+master --> only gives instructions
+	worker nodes --> they will do work
+
+if we dont have workers, master has to do everything
+
+
+Namespace
+---------------
+isolated project space
+
+create -> when respource not exist, you can use this. if respource exist you will get error
+apply --> when respource not exist, it will create, if exist it will just update/does nothing
+
+
+
+

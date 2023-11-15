@@ -1,0 +1,114 @@
+Pod
+ConfigMap
+Service
+ReplicaSet
+Deployment
+Secret
+
+Storage
+----------------
+worker nodes are ephemeral.
+pod itself is ephemeral, anytime it may be deleted. if we store data inside pod we lose it.
+we created docker volumes and mounted to container.
+
+1. emptyDir --> ephemeral, inside pod
+2. hostPath --> ephemeral, inside server
+
+3. static provisioning --> external and perm
+4. dynamic provisioning --> external and perm
+
+pod vs container
+--------------
+1. multi containers in pod
+2. they share same storage and network
+
+filebeat is popular log shipping model from kubernetes to elastic search
+it needs to have some config.
+	1. elastic search address --> where to ship
+	2. it needs what are the files to ship
+we will provide this configuration through configmap
+
+emptyDir is a kubernetes ephemeral volume used in sidecar patterns, we will mount volume to main container and sidecar container so that they can share storage. main container wll write logs sidecar container will access and ship logs to elastic search
+
+we use hostPath generally to ship server logs
+
+deamonset
+------------
+if you run deamonset kubernetes will create a pod in each and every worker node.
+
+hostPath will be only done by admins to ship server logs to elastic search with deamonset.
+
+deamonset --> fluentd --> a shipper to access and send log files to elastic search
+deamonset will access logs through hostPath
+
+1. create volume --> persistance
+2. mount volume --> giving access to pods
+
+deamonset --> make sure a pod runs on every worker node
+hostPath --> to give access of server storaqe to the pod
+fluentd --> ship log files to elastic search
+
+
+static provisioning
+----------------------
+hard disk --> sits next to computer, store files in harddisk
+
+EBS --> elastic block store
+
+create one EBS volume, give access to EKS cluster.
+
+EKS pods will store data in EBS volumes...
+
+now pods or servers may be deleted, but your data is not deleted, you can mount again to another pod so that pod can access the data.
+
+storage and backup admin --> netapp
+
+persistant volume --> this a representation of underlying storage..
+persistant volume claim --> pod will ask for storage.
+storage class --> dynamic provisioning
+
+We will create EBS disk -> inside cloud
+We will create equivalant pv object to represent EBS disk..
+
+something external to computer we should install drivers.
+	- sound
+	- keyboard
+	- mouse
+	- usb
+
+install EBS drivers.
+
+steps:
+----------
+1. create disk
+2. install drivers
+3. create PV
+4. make sure EC2 can access EBS
+5. create PVC --> a way of claiming storage
+6. create volume out of PVC
+7. mount to container
+
+EC2 --> EBS
+
+3 worker nodes
+
+10 pods 
+3 pods --> ip-192-168-51-12.ec2.internal --> EBS volume
+7 pods --> diff server
+
+EFS --> elastic file storage
+------------------------------
+NFS --> network file storage
+
+
+
+User
+Orders data
+cities and countries
+payments
+
+-------
+MySQL
+rabbitmq
+mongodb
+redis

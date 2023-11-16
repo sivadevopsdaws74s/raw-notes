@@ -1,0 +1,94 @@
+AWS services
+-----------------
+subnet --> VPC
+SG --> VPC
+LB --> VPC
+VPC level and NON VPC level resources
+
+route53 --> non VPC level resource
+
+K8
+----------------
+namespace --> true/false
+
+Pods
+----------------
+pods are smallest deployment unit in k8
+
+pod vs container
+---------------------
+1. 1 pod can have multiple containers
+2. all containers inside pod share same storage and n/w
+
+docker run -d -p 80:80 --network nginx:latest
+
+we are not using docker to run images, we are going to use k8 to run images
+
+multiple containers can be used in
+1. side car
+2. proxy patterns
+3. init containers
+
+labels
+--------------
+lables are used in selectors, it has some functional advantage apart from filtering.
+
+labels vs annotations
+--------------
+labels can't have special char in key names, annotations can have
+lable key have some length restrictions, annotations length can be more than lables
+
+labels are used in kubernetes resources selectors
+annotations are used in selecting external resources
+
+VM and docker
+-------------
+1. resource utilisation
+
+1Gb ram and 5gb hd --> blocked in VM
+can dynamically consume resources --> not blocking system resources
+
+app locks --> can consume more memory because of code defect
+container can block complete system resources, we can implement resources limits in docker
+
+resources are not blocking the memory and ram, k8 is just monitoring pods should not consume more resources than mentioned.
+
+requests: # soft-limit 
+        memory: "64Mi"
+        cpu: "250m"
+limits: # hard-limit
+memory: "128Mi"
+cpu: "500m"
+
+1 cpu == 1000m
+250m = 0.25 cpu
+
+image pull policy
+------------------
+pushing images to docker hub
+we push roboshop images to docker hub
+
+we are running kubernetes pod --> already pulled image(default)
+
+developer did some change, he pushed new image to docker
+
+we run kubernetes pod again like kubectl apply -f pod.yaml
+
+
+config-map
+----------------
+keep the config away from container..
+
+URL --> configmap
+username/password --> secret
+
+
+services
+----------------------
+1. ClusterIP --> internal to cluster, not exposed to outside world, only exposed to inside cluster
+2. NodePort
+3. LoadBalancer --> cloud related kubernetes
+
+1. to expose your application to outside world
+2. service mesh
+2. to balance the load --> deployment and replicaset

@@ -1,0 +1,92 @@
+
+2023-11-16 01:34:44 [✖]  could not find public subnets for zones ["us-east-1a"] (allSubnets=v1alpha5.AZSubnetMapping{"us-east-1b":v1alpha5.AZSubnetSpec{ID:"subnet-0ef219b1971fd7631", AZ:"us-east-1b", CIDR:(*ipnet.IPNet)(0xc000178bd0), CIDRIndex:0, OutpostARN:""}, "us-east-1d":v1alpha5.AZSubnetSpec{ID:"subnet-040c3188d6bad9a14", AZ:"us-east-1d", CIDR:(*ipnet.IPNet)(0xc000178ed0), CIDRIndex:0, OutpostARN:""}} localZones=[]string{"us-east-1a"} subnets=[]string(nil)): mapping does not have subnet with zone "us-east-1a": (allSubnets=v1alpha5.AZSubnetMapping{"us-east-1b":v1alpha5.AZSubnetSpec{ID:"subnet-0ef219b1971fd7631", AZ:"us-east-1b", CIDR:(*ipnet.IPNet)(0xc000178bd0), CIDRIndex:0, OutpostARN:""}, "us-east-1d":v1alpha5.AZSubnetSpec{ID:"subnet-040c3188d6bad9a14", AZ:"us-east-1d", CIDR:(*ipnet.IPNet)(0xc000178ed0), CIDRIndex:0, OutpostARN:""}} zones=[]string{"us-east-1a"})
+
+
+emptyDir --> ephemeral --> used in sidecar patterns to share the storage between containers in the pod
+hostPath --> gives access to host storage to get the log files generally, used in deamonset to get server logs
+
+perm volumes
+--------------------
+static provisioning
+dynamic provisioning
+
+EBS ->
+
+1. created EBS volumes
+2. install drivers EBS CSI
+3. give access to worker nodes
+4. created PV
+5. created PVC
+6. mounted to the pod
+
+Dynamic
+-----------
+creation of disks can be handled by Kubernetes.
+
+StorageClass --> disk and PV --> admin activity
+
+EKS cluster --> roboshop, amazon, flipkart
+
+1. install drivers, because SC object use drivers to create volumes.
+
+SC --> k8 admin
+PV
+PVC --> roboshop engineer create pvc, he mentions which storage class.
+
+storage class will create disk and pv automatically.
+
+
+EBS vs EFS
+-------------
+ebs is block store, EFS is network storage
+ebs can't scale automatically. EFS can get more disk space automatically.
+
+EFS static provisioning
+---------------------
+1. create EFS file system
+2. edit the security group to allow traffic
+install drivers
+3. give access to ec2 to access efs
+4. create pv, pvc and mount to pod
+
+kubectl kustomize \
+    "github.com/kubernetes-sigs/aws-efs-csi-driver/deploy/kubernetes/overlays/stable/ecr/?ref=release-1.7" > private-ecr-driver.yaml
+	
+EFS dynamic provisioning
+-----------------------
+1. create EFS file system
+2. edit the security group to allow traffic
+install drivers
+3. install drivers
+3. give access to ec2 to access efs
+
+a single file system can be used by entire company
+
+1. we will create sc for each project
+
+
+statefulset
+----------------------
+ReplicaSet
+DeploymentSet --> stateless applications
+DeamonSet
+StatefulSet --> DB related applications(MySQL, Redis, MongoDB, RabbitMq)
+
+DeploymentSet vs StatefulSet
+---------------------------
+DB related applications
+
+need to have same name and identity
+statefulset will create pods in ordery manner, nginx-0, nginx-1, nginx-2 will be created orderly. deployment can create many pods at a time
+statefulset keeps the pod identity same for the communication.
+statefulset preserve network identity
+
+deployment will use service, but statefulset it is mandatory to use headless service...
+1. deployment and attatch it to service
+	in deployment nslookup nginx-service will give IP address of service
+2. in statefulset nslookup nginx-service
+	
+
+
+
+

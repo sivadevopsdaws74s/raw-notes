@@ -1,0 +1,107 @@
+RBAC
+----------
+Role based access control
+Authentication and Authorization
+
+Role
+RoleBinding
+ClusterRole
+ClusterRoleBinding
+
+Pod --> namespace
+Service --> namespace
+Deployment --> namespace
+StatefulSet --> namespace
+PV --> ClusterLevel
+PVC --> namespace
+ConfigMap --> namespace
+
+either namespace level or cluster level
+
+EKS --> Roboshop, Amazon, Flipkart
+
+EKS Admins --> full access to entire cluster
+
+Roboshop
+--------
+roboshop-admin --> devops and cloud engineers
+roboshop-developers --> roboshop developers limited access
+
+Roboshop
+-----------
+1. project started
+2. team leadres, managers or devops guys
+3. create namespace and provide access
+
+As EKS admin
+-----------
+1. create namespace
+
+AWS is cloud, EKS is platform
+--------------------------
+IAM --> Authentication
+K8 RBAC --> Authorization
+
+ramesh --> should describe this cluster eks-spot-cluster
+
+Role --> permissions
+
+trainee --> read
+junior engineer --> 
+senior engineer
+team leader --> module admin
+manager --> entire project admin
+MD --> account admin
+
+
+sivakumar --> trainee
+ramesh --> team leader
+
+configmap aws-auth in kube-system, here we need to map IAM user and k8-rbac
+
+
+apiVersion: v1
+data:
+  mapRoles: |
+    - groups:
+      - system:bootstrappers
+      - system:nodes
+      rolearn: arn:aws:iam::315069654700:role/eksctl-eks-spot-cluster-nodegroup--NodeInstanceRole-ZFRyOLy0FVrN
+      username: system:node:{{EC2PrivateDNSName}}
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2023-11-21T01:43:14Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "8642"
+  uid: 94eacb41-7c0a-4038-91cf-d6ad800e1867
+
+
+
+HorizontalPodAutoscaler
+-------------------------
+replicas --> 1 or 10
+
+CPU Utilisation or Memory Utilisation
+
+
+metricsserver
+------------
+
+Ingress Controller
+------------------
+amazon.joindevops.online --> it can go to amazon project
+flipkart.joindevops.online --> it can go to flipkart project
+
+m.facebook.com --> redirect mobile website
+facebook.com --> actual application
+admin.facebook.com --> redirect admin website
+
+joindevops.online/amazon
+
+joindevops.online/flipkart
+
+
+M2tsNTNwYW12dWRpYmRvamhoaXFuNmJtMDggaW5mb0Bqb2luZGV2b3BzLmNvbQ
+
+
